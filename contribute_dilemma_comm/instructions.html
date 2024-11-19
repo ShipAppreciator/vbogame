@@ -1,0 +1,32 @@
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+    <h3>
+        Instructions
+    </h3>
+
+    <p>
+		This game is different than the previous one so please reread these instructions.
+        You will be grouped randomly and anonymously with
+        another {{ C.NUM_OTHER_PLAYERS }}
+        participants.
+    </p>
+    <p>
+		First, you will be assigned a cost that ranges uniformly from 0 to 120.
+		Then, you will be asked whether you would like to volunteer to contribute to the threshold.  
+		This is not a binding decision.  
+		
+		In the next screen you will be asked whether you would like to contribute.
+		If at least {{C.NUMCONS}} volunteer, then a sample of {{C.NUMCONS}}
+		Players will be selected and suggested to contribute. All other players will be suggested not to contribute.
+		You are not obligated to follow either of these suggestions.  All contributions occur independently and simultaneously.
+		
+        If at least {{C.NUMCONS}} of you contributes, everyone will get
+        {{ C.GENERAL_BENEFIT }}. However, you will
+        pay {{ player.cost }} if you contribute, regardless of if the threshold is met. If fewer than {{C.NUMCONS}}
+        contributes, everyone receives nothing.
+		you currently have {{player.earnings}}
+    </p>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Your Choice{{ endblock }}
+
+{{ block content }}
+<p>Your cost this round is {{player.cost}}. </p>
+{{ formfields }}
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

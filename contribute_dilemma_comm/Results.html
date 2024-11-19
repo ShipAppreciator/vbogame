@@ -1,0 +1,24 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Results{{ endblock }}
+
+{{ block content }}
+
+<p>
+    {{ if player.contribute }}
+        You contributed. As a result, your payoff is
+        <strong>{{ player.payoff }}</strong>.
+    {{ elif group.num_contributes > C.NUMCONS }}
+        You did not contribute but some did. As a result, your payoff is
+        <strong>{{ player.payoff }}</strong>.
+    {{ else }}
+        You did not contribute and no one did. As a result, your payoff is
+        <strong>{{ player.payoff }}</strong>.
+    {{ endif }}
+	Your total earnings so far are {{player.total_earnings}}
+</p>
+
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

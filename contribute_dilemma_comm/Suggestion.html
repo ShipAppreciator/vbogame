@@ -1,0 +1,18 @@
+{{ extends 'global/Page.html' }}
+{{ block title }}Results{{ endblock }}
+
+{{ block content }}
+
+<p>
+    {{ if player.voluntold }}
+        You have been selected to contribute.  You are not obligated to do so.
+    {{ else }}
+        You have not been selected to contribute.  You are not obligated to do so.
+    {{ endif }}
+</p>
+
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

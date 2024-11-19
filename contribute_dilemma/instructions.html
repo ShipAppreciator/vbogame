@@ -1,0 +1,24 @@
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+    <h3>
+        Instructions
+    </h3>
+
+    <p>
+		First, you will be assigned a cost that ranges uniformly from 0 to 120.
+        You will be grouped randomly and anonymously with
+        another {{ C.NUM_OTHER_PLAYERS }}
+        participants.
+    </p>
+    <p>
+        Each of you decides independently and simultaneously whether you will
+        contribute or not. If at least {{C.NUMCONS}} of you contributes, everyone will get
+        {{ C.GENERAL_BENEFIT }}. However, you will
+        pay {{ player.cost }} if you contribute, regardless of if the threshold is met. If fewer than {{C.NUMCONS}}
+        contributes, everyone receives nothing.
+		you currently have {{player.earnings}}
+    </p>
+    </div>
+</div>
