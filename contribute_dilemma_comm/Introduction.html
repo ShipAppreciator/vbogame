@@ -1,9 +1,17 @@
 {{ extends 'global/Page.html' }}
-{{ block title }}Introduction{{ endblock }}
+{{ block title }} Game #2 begins {{ endblock }}
 
 {{ block content }}
+<h3>
+    Instructions
+</h3>
+
+<p>
+    This game is different than the previous one so please reread these instructions. 
+</p>
 
 {{ include C.INSTRUCTIONS_TEMPLATE }}
-{{ next_button }}
+
+<p>{{ next_button }}</p>
 
 {{ endblock }}

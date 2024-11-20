@@ -1,9 +1,21 @@
 {{ extends 'global/Page.html' }}
-{{ block title }}Introduction{{ endblock }}
+{{ block title }} Game #1 begins {{ endblock }}
 
 {{ block content }}
+<h3>
+    Instructions
+</h3>
+
+<p>
+    In this page, we will explain how to play the first 10 rounds of the game. <br>
+    If you have any questions, please raise your hand. One of our experimenters will come to you and answer your question privately.
+</p>
 
 {{ include C.INSTRUCTIONS_TEMPLATE }}
-{{ next_button }}
+
+<p>
+    There is no practice questions for this pilot experiment. Please click next if you understand and agree to the instruction. If not, please raise your hand and you will be assisted shortly.
+</p>
+<p>{{ next_button }}</p>
 
 {{ endblock }}

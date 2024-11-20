@@ -1,0 +1,13 @@
+{{ extends 'global/Page.html' }}
+{{ block title }} This is the end of the experiment. {{ endblock }}
+
+{{ block content }}
+<p>
+    Thank you for your participation. Your final earnings today are <strong>{{player.total_earnings}}</strong>. 
+    Your earnings are equivalent of <strong>{{player.total_earnings_in_dollars}} dollars</strong>. This amount and participation fee ($3) will be paid to you privately when you sign out and leave the room. 
+    Click next to end the experiment.
+</p>
+{{ formfields }}
+
+<p>{{ next_button }}</p>
+{{ endblock }}

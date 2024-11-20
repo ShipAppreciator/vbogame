@@ -1,0 +1,28 @@
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+    <h5>
+        Reminder
+    </h5>
+    
+    <style>
+        li {
+            margin-bottom: 10px; /* Adds 10px space between each <li> */
+        }
+    </style>
+
+    <ul style="font-size: 16px;">
+        <li>
+            Your are assigned a cost that ranges uniformly from 0 to 120. You are grouped randomly and anonymously with another 9 participants. 
+        </li>
+        <li>
+            If at least {{C.NUMCONS}} of you contribute, everyone will get {{ C.GENERAL_BENEFIT }} <br>
+            If fewer than {{C.NUMCONS}} contribute, everyone receives nothing.
+        </li>
+        <li>
+            However, you will pay {{ player.cost }} if you contribute, <strong>regardless of if the threshold is met.</strong> 
+        </li>
+    </ul>
+    </div>
+</div>

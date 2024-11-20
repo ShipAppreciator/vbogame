@@ -47,8 +47,8 @@ def vol_logic(group:Group):
             
         
 class Player(BasePlayer):
-    contribute = models.BooleanField(doc='Whether player contributes', label='Do you wish to contribute')
-    volunteer = models.BooleanField(doc='Whether player volunteers', label = 'Do you wish to volunteer?  Remember that this decision is non binding')
+    contribute = models.BooleanField(doc='Whether player contributes', label='Do you wish to contribute?')
+    volunteer = models.BooleanField(doc='Whether player volunteers', label = 'Do you wish to volunteer? Remember that this decision is non binding.')
     cost = models.CurrencyField()
     earnings = models.CurrencyField()
     voluntold = models.BooleanField()
@@ -56,6 +56,8 @@ class Player(BasePlayer):
         prior_app_earnings = self.participant.vars.get('cumulative_earnings', 0)
         current_earnings = self.earnings or 0
         return prior_app_earnings
+    def total_earnings_in_dollars(self):
+        return self.total_earnings() * 0.01  # Convert points to dollars
 class Introduction(Page):
     form_model = 'player'
     def is_displayed(self):
@@ -63,7 +65,6 @@ class Introduction(Page):
 class Volunteer(Page):
     form_model = 'player'
     form_fields = ['volunteer']
-
 class SugWaitPage(WaitPage):
     after_all_players_arrive = vol_logic
 class Suggestion(Page):
@@ -75,10 +76,15 @@ class ResultsWaitPage(WaitPage):
     after_all_players_arrive = set_payoffs
 class Results(Page):
     form_model = 'player'
-page_sequence = [Introduction, Volunteer, SugWaitPage, Suggestion, Decision, ResultsWaitPage, Results]
-
+class End(Page):
+    form_model = 'player'
+    def is_displayed(self):
+        return self.round_number == C.NUM_ROUNDS
+    
 def creating_session(subsession):
     for player in subsession.get_players():
         player.earnings = C.ENDOWMENT
         # Assign a random cost for this round
         player.cost = cu(random.randint(1, 120))
+        
+page_sequence = [Introduction, Volunteer, SugWaitPage, Suggestion, Decision, ResultsWaitPage, Results, End]

@@ -1,11 +1,14 @@
 {{ extends 'global/Page.html' }}
-{{ block title }}Your Choice{{ endblock }}
+{{ block title }} Round {{player.round_number}} {{ endblock }}
 
 {{ block content }}
-<p>Your cost this round is {{player.cost}}. </p>
+<p>
+    Your cost this round is <strong>{{player.cost}}</strong>. 
+    <br> (Your current earnings: <strong>{{player.total_earnings}}</strong>)
+</p>
 {{ formfields }}
 <p>{{ next_button }}</p>
 
-{{ include C.INSTRUCTIONS_TEMPLATE }}
+{% include 'contribute_dilemma/Decisioninstruction.html' %}
 
 {{ endblock }}

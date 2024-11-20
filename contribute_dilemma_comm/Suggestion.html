@@ -1,18 +1,18 @@
 {{ extends 'global/Page.html' }}
-{{ block title }}Results{{ endblock }}
+{{ block title }} Round {{player.round_number}} - suggestion {{ endblock }}
 
 {{ block content }}
 
 <p>
     {{ if player.voluntold }}
-        You have been selected to contribute.  You are not obligated to do so.
+        You have been selected to contribute. You are not obligated to do so.
     {{ else }}
-        You have not been selected to contribute.  You are not obligated to do so.
+        You have not been selected to contribute. You are not obligated to do so.
     {{ endif }}
 </p>
 
-<p>{{ next_button }}</p>
+<p>In the next page, you will be asked to make a choice.</p>
 
-{{ include C.INSTRUCTIONS_TEMPLATE }}
+<p>{{ next_button }}</p>
 
 {{ endblock }}

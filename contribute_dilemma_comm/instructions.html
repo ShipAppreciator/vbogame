@@ -1,32 +1,98 @@
 
 <div class="card bg-light m-3">
     <div class="card-body">
-
-    <h3>
-        Instructions
-    </h3>
-
+    
+    <h5>Volunteer & Suggestion</h5>
     <p>
-		This game is different than the previous one so please reread these instructions.
-        You will be grouped randomly and anonymously with
-        another {{ C.NUM_OTHER_PLAYERS }}
-        participants.
+        Over the next 10 rounds, you will be grouped randomly and anonymously with another {{ C.NUM_OTHER_PLAYERS }} participants.
+        In each round, you will be randomly assigned a cost that ranges uniformly from 0 to 120.
     </p>
     <p>
-		First, you will be assigned a cost that ranges uniformly from 0 to 120.
-		Then, you will be asked whether you would like to volunteer to contribute to the threshold.  
-		This is not a binding decision.  
-		
-		In the next screen you will be asked whether you would like to contribute.
-		If at least {{C.NUMCONS}} volunteer, then a sample of {{C.NUMCONS}}
-		Players will be selected and suggested to contribute. All other players will be suggested not to contribute.
-		You are not obligated to follow either of these suggestions.  All contributions occur independently and simultaneously.
-		
-        If at least {{C.NUMCONS}} of you contributes, everyone will get
-        {{ C.GENERAL_BENEFIT }}. However, you will
-        pay {{ player.cost }} if you contribute, regardless of if the threshold is met. If fewer than {{C.NUMCONS}}
-        contributes, everyone receives nothing.
-		you currently have {{player.earnings}}
+        <strong><span style="color: blue;">Then, you will be asked whether you would like to volunteer to contribute to the threshold. This is not a binding decision.</span></strong>  
     </p>
+    <p style="margin-top: 30px;">
+        On the next screen, you will be asked whether you would like to contribute. <br>
+        Then, <strong><span style="color: blue;">suggestions will be presented as follows</span></strong>.
+        <ul>
+            <li>
+                If at least {{C.NUMCONS}} volunteer, then a sample of {{C.NUMCONS}} participants will be selected and suggested to contribute. 
+                All other participants will be suggested not to contribute.
+            </li>
+            <li>
+                If fewer than {{C.NUMCONS}} volunteer, all participants will be suggested not to contribute.
+            </li>
+            <li>
+                You are not obligated to follow any of these suggestions.
+            </li>
+        </ul>
+        After the suggestions are made, each of you decides independently and simultaneously whether you will contribute or not, just as in the previous game.      
+    </p>
+    <p>
+        Earnings will be determined in the same manner as were in the previous game. Your earnings will continue to be accumulated until the end of the experiment.
+        Your current earnings are <strong>{{player.total_earnings}}</strong>.
+    </p>
+
+    <h5 style="margin-top: 50px;">
+        How earnings are determined (unchanged)
+    </h5>
+    <p>
+        <ul>
+            <li>
+                If at least {{C.NUMCONS}} members in your group contribute, everyone will get {{ C.GENERAL_BENEFIT }}.
+            </li>
+            <li>
+                If fewer than {{C.NUMCONS}} members contribute, everyone receives nothing.
+            </li>
+        </ul>
+        <li>
+            <strong>However, you will pay your cost if you contribute, regardless of if the threshold is met</strong>.
+        </li>
+    </p>
+    <p>
+        Note that your earnings each round will depend on both your own choice and the choices of other group members. <br> 
+        There are four possible cases. <br>
+        
+        <table style="border-collapse: separate; width: 50%; margin-top: 20px; border: 1px solid black;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>At least {{C.NUMCONS}} contributed</th>
+                    <th>Fewer than {{C.NUMCONS}} contributed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>you contributed</strong></td>
+                    <td>100 points <br>- your cost</td>
+                    <td>- your cost</td>
+                </tr>
+                <tr>
+                    <td><strong>you did not contribute</strong></td>
+                    <td>100 points</td>
+                    <td>0 points</td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+    
+    <h5 style="margin-top: 30px;">
+        How you will be paid off (unchanged)
+    </h5>
+    <p>
+        <ul>
+            <li>
+                Your earnings will be accumulated until the end of the experiment. 
+            </li>
+            <li>
+                <strong>Each point</strong> you earn is equivalent of <strong>$0.01</strong>. 
+                However, if your total earnings are negative points at the end of this experiment, your earnings will be converted to $0.
+            </li>
+            <li>
+                You will be paid off your earnings plus participation fee ($3) when you leave the room. 
+                Your payoff from this experiment will range between $0 ~ $23. 
+            </li>
+        </ul>
+    </p>
+    
     </div>
 </div>

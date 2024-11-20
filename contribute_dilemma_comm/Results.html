@@ -4,21 +4,29 @@
 {{ block content }}
 
 <p>
-    {{ if player.contribute }}
-        You contributed. As a result, your payoff is
-        <strong>{{ player.payoff }}</strong>.
-    {{ elif group.num_contributes > C.NUMCONS }}
-        You did not contribute but some did. As a result, your payoff is
-        <strong>{{ player.payoff }}</strong>.
+    {{ if group.num_contributes >= C.NUMCONS }}
+    <p>
+        {{ if player.contribute }}
+            You <strong>contributed,</strong> and <strong>at least {{C.NUMCONS}} members</strong> in your group contributed.
+        {{ else }}
+            You <strong>did not contribute,</strong> but <strong>at least {{C.NUMCONS}} members</strong> in your group contributed.
+        {{ endif }}
+    </p>
     {{ else }}
-        You did not contribute and no one did. As a result, your payoff is
-        <strong>{{ player.payoff }}</strong>.
+    <p>
+        {{ if player.contribute }}
+            You <strong>contributed,</strong> but <strong>fewer than {{C.NUMCONS}} members</strong> in your group contributed.
+        {{ else }}
+            You <strong>did not contribute,</strong> and <strong>fewer than {{C.NUMCONS}} members</strong> in your group contributed.
+        {{ endif }}
+    </p>
     {{ endif }}
-	Your total earnings so far are {{player.total_earnings}}
+    As a result, your earnings this round is 
+    <strong>{{ player.payoff }}</strong>.
+    <br> (Your total earnings so far: <strong>{{player.total_earnings}}</strong>)
 </p>
 
-<p>{{ next_button }}</p>
 
-{{ include C.INSTRUCTIONS_TEMPLATE }}
+<p>{{ next_button }}</p>
 
 {{ endblock }}
