@@ -5,10 +5,10 @@ c = cu
 
 class C(BaseConstants):
     NAME_IN_URL = 'contribute_dilemma'
-    PLAYERS_PER_GROUP = 9
+    PLAYERS_PER_GROUP = 8
     NUM_ROUNDS = 10
-    NUMCONS = 6
-    NUM_OTHER_PLAYERS = 8
+    NUMCONS = 2
+    NUM_OTHER_PLAYERS = 7
     GENERAL_BENEFIT = cu(100)
     ENDOWMENT = cu(0)
     INSTRUCTIONS_TEMPLATE = 'contribute_dilemma/instructions.html'
